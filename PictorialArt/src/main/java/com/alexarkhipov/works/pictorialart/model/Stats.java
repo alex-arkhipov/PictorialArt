@@ -26,7 +26,7 @@ public class Stats {
 	@MapsId
 	@OneToOne
 	@JoinColumn(name = "AuthorID")
-	private Authors author;
+	private Author author;
 
 	@MapsId
 	@OneToOne

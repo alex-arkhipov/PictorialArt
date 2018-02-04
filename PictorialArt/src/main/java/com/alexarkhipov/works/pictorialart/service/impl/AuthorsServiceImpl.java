@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alexarkhipov.works.pictorialart.dao.AuthorsDao;
-import com.alexarkhipov.works.pictorialart.model.Authors;
+import com.alexarkhipov.works.pictorialart.model.Author;
 import com.alexarkhipov.works.pictorialart.service.AuthorsService;
 
 @Service
@@ -16,7 +16,7 @@ public class AuthorsServiceImpl implements AuthorsService {
 	private AuthorsDao authorsDao;
 
 	@Override
-	public List<Authors> getAuthors() {
+	public List<Author> getAuthors() {
 		return authorsDao.getAuthors();
 	}
 

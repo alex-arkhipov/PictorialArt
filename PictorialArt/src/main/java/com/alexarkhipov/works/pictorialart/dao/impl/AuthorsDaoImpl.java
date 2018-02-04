@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.alexarkhipov.works.pictorialart.dao.AuthorsDao;
-import com.alexarkhipov.works.pictorialart.model.Authors;
+import com.alexarkhipov.works.pictorialart.model.Author;
 
 @Component
 public class AuthorsDaoImpl implements AuthorsDao {
@@ -17,8 +17,8 @@ public class AuthorsDaoImpl implements AuthorsDao {
 	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	public List<Authors> getAuthors() {
-		Criteria criteria = sessionFactory.openSession().createCriteria(Authors.class);
+	public List<Author> getAuthors() {
+		Criteria criteria = sessionFactory.openSession().createCriteria(Author.class);
 		return criteria.list();
 	}
 

@@ -21,7 +21,7 @@ public class Works {
 	@MapsId
 	@OneToOne
 	@JoinColumn(name = "authorID")
-	private Authors author;
+	private Author author;
 
 	@MapsId
 	@OneToOne
@@ -36,7 +36,7 @@ public class Works {
 	@MapsId
 	@OneToOne
 	@JoinColumn(name = "GenreID")
-	private Genres genre;
+	private Genre genre;
 
 	@Column(name = "CYear")
 	private int cYear;

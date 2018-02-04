@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.alexarkhipov.works.pictorialart.model;
 
 import javax.persistence.Column;
@@ -6,18 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "GENRES")
-public class Genres {
+@Table(name = "DESCRIPTIONS")
+public class Description {
 
 	@Id
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "Genre", nullable = false)
-	private String genre;
+	@Column(name = "Description", nullable = false)
+	private String description;
 
-	public String getGenre() {
-		return genre;
+	public String getDescription() {
+		return description;
 	}
 
 }

@@ -10,34 +10,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alexarkhipov.works.pictorialart.model.Author;
-import com.alexarkhipov.works.pictorialart.service.AuthorsService;
+import com.alexarkhipov.works.pictorialart.model.Production;
+import com.alexarkhipov.works.pictorialart.service.ProductionsService;
 
 @Controller
-public class AuthorsController {
+public class ProductionsController {
 
 	@Autowired
-	private AuthorsService authorsService;
+	private ProductionsService productionsService;
 
-	@RequestMapping(value = "/authorslist", method = RequestMethod.GET)
-	public ResponseEntity<List<Author>> authors() {
+	@RequestMapping(value = "/productionslist", method = RequestMethod.GET)
+	public ResponseEntity<List<Production>> productions() {
 
-		List<Author> a = authorsService.getAuthors();
+		List<Production> a = productionsService.getProductions();
 		return new ResponseEntity<>(a, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/authorslastnames", method = RequestMethod.GET)
+	@RequestMapping(value = "/productionsauthors", method = RequestMethod.GET)
 	public ResponseEntity<List<String>> authorlastnames() {
 
-		List<Author> a = authorsService.getAuthors();
+		List<Production> p = productionsService.getProductions();
 		List<String> arr = new ArrayList<>();
-		for (Author a1 : a) {
-			arr.add(a1.getFullname());
+		for (Production p1 : p) {
+			arr.add(p1.toString());
 		}
 		return new ResponseEntity<>(arr, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/authortest", method = RequestMethod.GET)
+	@RequestMapping(value = "/productiontest", method = RequestMethod.GET)
 	public ResponseEntity<String> authorstest() {
 		return new ResponseEntity<>("Test string", HttpStatus.OK);
 	}

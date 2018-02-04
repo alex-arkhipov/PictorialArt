@@ -9,5 +9,5 @@ public interface PlayersDao {
 
 	void savePlayer(Players p);
 
-	Players getPlayer(String Nickname);
+	Players getPlayer(String nickname);
 }

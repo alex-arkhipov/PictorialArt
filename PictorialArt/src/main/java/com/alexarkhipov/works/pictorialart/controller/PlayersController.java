@@ -50,11 +50,6 @@ public class PlayersController {
 		return new ResponseEntity<>(a, HttpStatus.OK);
 	}
 
-	// @RequestMapping(value = "/" + NEW_PLAYER, method = RequestMethod.GET)
-	// public String newplayer() {
-	// return NEW_PLAYER;
-	// }
-
 	@RequestMapping(value = "/" + NEW_PLAYER, method = RequestMethod.GET)
 	public String newPlayer(@ModelAttribute("player") Players player) {
 
@@ -77,9 +72,6 @@ public class PlayersController {
 
 	@RequestMapping(value = "/{playernickname}", method = RequestMethod.GET)
 	public String showPlayerProfile(@PathVariable String playernickname, Model model) {
-		// TODO: get player info
-		// Players pl = mock(Players.class);
-		// when(pl.getName()).thenReturn("Alex Arkhipov");
 		Players pl = playersService.getPlayer(playernickname);
 		model.addAttribute("player", pl);
 		return "profile";
