@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<title>Poetry Expert Quiz - Create new player</title>
+</head>
+<body>
+<header th:replace="layout :: site-header"></header>
+<h1>New Player Creation</h1>
+<form class="playerReg" th:object="${player}" method="POST">
+<div>
+<label class="formLabel">Nickname:</label>
+<input type="text" th:field="*{nickname}"/>
+	<span class="formError" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Incorrect nickname</span>
+</div>
+<div>
+<label class="formLabel">Password: </label>
+<input type="password" th:field="*{password}"/>
+	<span class="formError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect password</span>
+</div>
+<div>
+<label class="formLabel">Full Name: </label>
+<input type="text" name="name" th:field="*{name}"/>
+	<span class="formError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect name</span>
+</div>
+<div>
+<label class="formLabel">Email: </label>
+<input type="email" name="email" th:field="*{email}"/>
+	<span class="formError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect email</span>
+</div>
+<div>
+<label class="formLabel">Sex: </label>
+<select th:field="*{sex}">
+	<option th:each="s : ${player.sexes}" th:value="${s.value}" th:text="${s.name}">Sex</option>
+</select>
+	<span class="formError" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Incorrect sex</span>
+</div>
+<div>
+<label class="formLabel">Age: </label>
+<input type="text" name="age" th:field="*{age}"/>
+	<span class="formError" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Incorrect age</span>
+</div>
+<input type="submit" value="Register" />
+
+</form>
+</body>
+</html>
