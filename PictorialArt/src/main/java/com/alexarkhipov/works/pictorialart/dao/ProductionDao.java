@@ -11,7 +11,7 @@ import com.alexarkhipov.works.pictorialart.model.Production;
  * @author arkhipov
  *
  */
-public interface ProductionsDao {
+public interface ProductionDao {
 	List<Production> getProductions();
 
 	// Return 'productions' of particular 'author'

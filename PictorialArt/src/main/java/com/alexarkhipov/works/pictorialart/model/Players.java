@@ -25,7 +25,7 @@ class SexClass {
 }
 
 @Entity
-@Table(name = "PLAYERS")
+@Table(name = "PLAYER")
 public class Players {
 
 	static {

@@ -9,11 +9,11 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alexarkhipov.works.pictorialart.dao.PlayersDao;
+import com.alexarkhipov.works.pictorialart.dao.PlayerDao;
 import com.alexarkhipov.works.pictorialart.model.Players;
 
 @Component
-public class PlayersDaoImpl implements PlayersDao {
+public class PlayerDaoImpl implements PlayerDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;

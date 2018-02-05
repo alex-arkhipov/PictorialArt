@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.alexarkhipov.works.pictorialart.dao.AuthorsDao;
+import com.alexarkhipov.works.pictorialart.dao.AuthorDao;
 import com.alexarkhipov.works.pictorialart.model.Author;
-import com.alexarkhipov.works.pictorialart.service.AuthorsService;
+import com.alexarkhipov.works.pictorialart.service.AuthorService;
 
 @Service
-public class AuthorsServiceImpl implements AuthorsService {
+public class AuthorServiceImpl implements AuthorService {
 
 	@Autowired
-	private AuthorsDao authorsDao;
+	private AuthorDao authorsDao;
 
 	@Override
 	public List<Author> getAuthors() {

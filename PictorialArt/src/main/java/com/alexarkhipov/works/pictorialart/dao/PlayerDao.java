@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.alexarkhipov.works.pictorialart.model.Players;
 
-public interface PlayersDao {
+public interface PlayerDao {
 	List<Players> getPlayers();
 
 	void savePlayer(Players p);

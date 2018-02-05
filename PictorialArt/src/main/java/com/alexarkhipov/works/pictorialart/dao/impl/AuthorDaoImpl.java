@@ -7,11 +7,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alexarkhipov.works.pictorialart.dao.AuthorsDao;
+import com.alexarkhipov.works.pictorialart.dao.AuthorDao;
 import com.alexarkhipov.works.pictorialart.model.Author;
 
 @Component
-public class AuthorsDaoImpl implements AuthorsDao {
+public class AuthorDaoImpl implements AuthorDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;

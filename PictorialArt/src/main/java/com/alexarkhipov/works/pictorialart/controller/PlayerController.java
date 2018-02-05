@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alexarkhipov.works.pictorialart.model.Players;
-import com.alexarkhipov.works.pictorialart.service.PlayersService;
+import com.alexarkhipov.works.pictorialart.service.PlayerService;
 import com.alexarkhipov.works.pictorialart.utils.NeoCrypt;
 
 class Sex {
@@ -33,12 +33,12 @@ class Sex {
 
 @Controller
 @RequestMapping(value = "/player")
-public class PlayersController {
-	private static final Logger logger = LoggerFactory.getLogger(PlayersController.class);
+public class PlayerController {
+	private static final Logger logger = LoggerFactory.getLogger(PlayerController.class);
 	public static final String NEW_PLAYER = "newplayer";
 
 	@Autowired
-	private PlayersService playersService;
+	private PlayerService playersService;
 
 	@Autowired
 	private NeoCrypt neoCrypt;

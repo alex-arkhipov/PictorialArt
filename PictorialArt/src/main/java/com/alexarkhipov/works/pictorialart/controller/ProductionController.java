@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alexarkhipov.works.pictorialart.model.Production;
-import com.alexarkhipov.works.pictorialart.service.ProductionsService;
+import com.alexarkhipov.works.pictorialart.service.ProductionService;
 
 @Controller
-public class ProductionsController {
+public class ProductionController {
 
 	@Autowired
-	private ProductionsService productionsService;
+	private ProductionService productionsService;
 
 	@RequestMapping(value = "/productionslist", method = RequestMethod.GET)
 	public ResponseEntity<List<Production>> productions() {

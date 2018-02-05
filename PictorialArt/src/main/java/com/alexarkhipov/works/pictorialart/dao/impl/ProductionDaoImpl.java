@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alexarkhipov.works.pictorialart.dao.ProductionsDao;
+import com.alexarkhipov.works.pictorialart.dao.ProductionDao;
 import com.alexarkhipov.works.pictorialart.model.Production;
 
 /**
@@ -18,7 +18,7 @@ import com.alexarkhipov.works.pictorialart.model.Production;
  *
  */
 @Component
-public class ProductionsDaoImpl implements ProductionsDao {
+public class ProductionDaoImpl implements ProductionDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;

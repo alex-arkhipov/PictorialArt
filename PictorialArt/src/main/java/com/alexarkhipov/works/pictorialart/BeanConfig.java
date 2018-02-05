@@ -12,7 +12,7 @@ import com.alexarkhipov.works.pictorialart.utils.NeoCrypt;
 import com.alexarkhipov.works.pictorialart.utils.NeoCryptImpl;
 
 @Configuration
-public class BeansConfig {
+public class BeanConfig {
 
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;

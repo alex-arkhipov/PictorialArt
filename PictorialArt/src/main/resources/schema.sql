@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS authors;
-CREATE TABLE Authors (
+DROP TABLE IF EXISTS author;
+CREATE TABLE Author (
 	id int primary key auto_increment,
 	FullName varchar(255) not null,
 	FName varchar(100) not null,
@@ -11,15 +11,15 @@ CREATE TABLE Authors (
 );
 
 --- Production genre
-DROP TABLE IF EXISTS genres;
-CREATE TABLE Genres (id int primary key not null, Genre varchar(100) not null);
+DROP TABLE IF EXISTS genre;
+CREATE TABLE Genre (id int primary key not null, Genre varchar(100) not null);
 
 --- Production description
-DROP TABLE IF EXISTS Descriptions;
-CREATE TABLE Descriptions (id int primary key not null, Description text not null);
+DROP TABLE IF EXISTS Description;
+CREATE TABLE Description (id int primary key not null, Description text not null);
 
-DROP TABLE IF EXISTS Productions;
-CREATE TABLE Productions (
+DROP TABLE IF EXISTS Production;
+CREATE TABLE Production (
 	id int primary key auto_increment,
 	AuthorID int,
 	DescriptionID int not null,
@@ -29,9 +29,9 @@ CREATE TABLE Productions (
 	Filename varchar(100) not null,
 	Popularity tinyint not null
 );
-ALTER TABLE Productions ADD FOREIGN KEY (AuthorID) REFERENCES Authors(id);
-ALTER TABLE Productions ADD FOREIGN KEY (GenreID) REFERENCES Genres(id);
-ALTER TABLE Productions ADD FOREIGN KEY (DescriptionID) REFERENCES Descriptions(id);
+ALTER TABLE Production ADD FOREIGN KEY (AuthorID) REFERENCES Author(id);
+ALTER TABLE Production ADD FOREIGN KEY (GenreID) REFERENCES Genre(id);
+ALTER TABLE Production ADD FOREIGN KEY (DescriptionID) REFERENCES Description(id);
 
-DROP TABLE IF EXISTS players;
-CREATE TABLE Players (id int primary key auto_increment, Nickname varchar(20) not null, Name varchar(255) not null, Sex tinyint not null, Hash varchar(255) not null, Age int, LastAccess date, Scores int, Email varchar(100) not null);
+DROP TABLE IF EXISTS player;
+CREATE TABLE Player (id int primary key auto_increment, Nickname varchar(20) not null, Name varchar(255) not null, Sex tinyint not null, Hash varchar(255) not null, Age int, LastAccess date, Scores int, Email varchar(100) not null);

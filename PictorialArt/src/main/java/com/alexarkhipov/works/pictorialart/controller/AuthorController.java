@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alexarkhipov.works.pictorialart.model.Author;
-import com.alexarkhipov.works.pictorialart.service.AuthorsService;
+import com.alexarkhipov.works.pictorialart.service.AuthorService;
 
 @Controller
-public class AuthorsController {
+public class AuthorController {
 
 	@Autowired
-	private AuthorsService authorsService;
+	private AuthorService authorsService;
 
 	@RequestMapping(value = "/authorslist", method = RequestMethod.GET)
 	public ResponseEntity<List<Author>> authors() {

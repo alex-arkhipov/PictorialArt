@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.alexarkhipov.works.pictorialart.dao.ProductionsDao;
+import com.alexarkhipov.works.pictorialart.dao.ProductionDao;
 import com.alexarkhipov.works.pictorialart.model.Production;
-import com.alexarkhipov.works.pictorialart.service.ProductionsService;
+import com.alexarkhipov.works.pictorialart.service.ProductionService;
 
 @Service
-public class ProductionsServiceImpl implements ProductionsService {
+public class ProductionServiceImpl implements ProductionService {
 
 	@Autowired
-	private ProductionsDao producationsDao;
+	private ProductionDao producationsDao;
 
 	@Override
 	public List<Production> getProductions() {

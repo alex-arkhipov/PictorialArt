@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.alexarkhipov.works.pictorialart.model.Players;
 
-public interface PlayersService {
+public interface PlayerService {
 	List<Players> getPlayers();
 
 	public void savePlayer(Players p);
