@@ -2,6 +2,7 @@ package com.alexarkhipov.works.pictorialart.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -139,7 +140,7 @@ public class Players {
 		this.sex = sex;
 	}
 
-	public static final ArrayList<SexClass> sexes;
+	public static final List<SexClass> sexes;
 
 	private static ArrayList<SexClass> getSexes() {
 		ArrayList<SexClass> sexes = new ArrayList<>();

@@ -1,4 +1,9 @@
-DROP TABLE IF EXISTS author;
+DROP TABLE IF EXISTS Production;
+DROP TABLE IF EXISTS Player;
+DROP TABLE IF EXISTS Genre;
+DROP TABLE IF EXISTS Description;
+DROP TABLE IF EXISTS Author;
+
 CREATE TABLE Author (
 	id int primary key auto_increment,
 	FullName varchar(255) not null,
@@ -10,15 +15,10 @@ CREATE TABLE Author (
 	Sex tinyint not null
 );
 
---- Production genre
-DROP TABLE IF EXISTS genre;
 CREATE TABLE Genre (id int primary key not null, Genre varchar(100) not null);
 
---- Production description
-DROP TABLE IF EXISTS Description;
 CREATE TABLE Description (id int primary key not null, Description text not null);
 
-DROP TABLE IF EXISTS Production;
 CREATE TABLE Production (
 	id int primary key auto_increment,
 	AuthorID int,
@@ -33,5 +33,4 @@ ALTER TABLE Production ADD FOREIGN KEY (AuthorID) REFERENCES Author(id);
 ALTER TABLE Production ADD FOREIGN KEY (GenreID) REFERENCES Genre(id);
 ALTER TABLE Production ADD FOREIGN KEY (DescriptionID) REFERENCES Description(id);
 
-DROP TABLE IF EXISTS player;
 CREATE TABLE Player (id int primary key auto_increment, Nickname varchar(20) not null, Name varchar(255) not null, Sex tinyint not null, Hash varchar(255) not null, Age int, LastAccess date, Scores int, Email varchar(100) not null);

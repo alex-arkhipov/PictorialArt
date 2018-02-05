@@ -17,10 +17,10 @@ public class Description {
 	private int id;
 
 	@Column(name = "Description", nullable = false)
-	private String description;
+	private String desc;
 
 	public String getDescription() {
-		return description;
+		return desc;
 	}
 
 }

@@ -14,10 +14,10 @@ public class Genre {
 	private int id;
 
 	@Column(name = "Genre", nullable = false)
-	private String genre;
+	private String gen;
 
 	public String getGenre() {
-		return genre;
+		return gen;
 	}
 
 }

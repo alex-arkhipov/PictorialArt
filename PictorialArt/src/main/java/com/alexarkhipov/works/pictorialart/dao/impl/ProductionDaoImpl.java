@@ -3,6 +3,7 @@
  */
 package com.alexarkhipov.works.pictorialart.dao.impl;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -39,7 +40,7 @@ public class ProductionDaoImpl implements ProductionDao {
 	@Override
 	public List<Production> getProductions(String author) {
 		// TODO Auto-generated method stub
-		return null;
+		return new LinkedList<>();
 	}
 
 }
