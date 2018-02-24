@@ -3,7 +3,6 @@
  */
 package com.alexarkhipov.works.pictorialart.dao.impl;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -58,7 +57,6 @@ public class ProductionDaoImpl implements ProductionDao {
 	public void saveProduction(Production p) {
 		Session s = sessionFactory.openSession();
 		s.getTransaction().begin();
-		Serializable id = s.save(p);
 		s.getTransaction().commit();
 		s.close();
 	}

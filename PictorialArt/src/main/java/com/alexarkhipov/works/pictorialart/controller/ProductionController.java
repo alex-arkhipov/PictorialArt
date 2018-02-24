@@ -27,7 +27,6 @@ import com.alexarkhipov.works.pictorialart.model.Author;
 import com.alexarkhipov.works.pictorialart.model.Genre;
 import com.alexarkhipov.works.pictorialart.model.Production;
 import com.alexarkhipov.works.pictorialart.service.AuthorService;
-import com.alexarkhipov.works.pictorialart.service.DescriptionService;
 import com.alexarkhipov.works.pictorialart.service.FileService;
 import com.alexarkhipov.works.pictorialart.service.GenreService;
 import com.alexarkhipov.works.pictorialart.service.ProductionService;
@@ -47,9 +46,6 @@ public class ProductionController {
 
 	@Autowired
 	private FileService fileService;
-
-	@Autowired
-	private DescriptionService descriptionService;
 
 	@Autowired
 	private ProductionService productionService;
