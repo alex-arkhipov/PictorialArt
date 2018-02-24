@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<title th:text="#{production.new.page_title}">Pictorial Art - Create new production</title>
+</head>
+<body>
+<header th:replace="layout :: site-header"></header>
+<h1><span th:text="#{production.new.h1}">New Production Creation</span></h1>
+<form class="playerReg" th:object="${production}" method="POST" enctype="multipart/form-data">
+<div>
+
+<div>
+<label class="formLabel"><span th:text="#{production.new.author}">Author:</span></label>
+<select th:field="*{authorNameId}">
+  <option th:each="author : ${authors}" 
+          th:value="${author.id}"
+          th:text="${author.fullname}"></option>
+</select>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{production.new.production}">Title:</span></label>
+<input type="text" th:field="*{title}"/>
+	<span class="formError" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect title</span>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{production.new.genre}">Genre:</span></label>
+<select th:field="*{genreNameId}">
+  <option th:each="genre : ${genres}" 
+          th:value="${genre.id}"
+          th:text="${genre.genre}"></option>
+</select>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{production.new.description}">Description:</span></label>
+<textarea rows="5" name="description" th:field="*{description.description}"></textarea>
+	<span class="formError" th:if="${#fields.hasErrors('description.description')}" th:errors="description.description">Incorrect description</span>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{production.new.production}">Production:</span></label>
+	<input name="fileData" type="file" accept="image/jpeg,image/png,image/gif"/>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{production.new.popularity}">Popularity:</span></label>
+<select th:field="*{popularity}">
+  <option th:each="p : ${popularities}" 
+          th:value="${p.key}"
+          th:text="${p.value}"></option>
+</select>
+</div>
+
+</div>
+<input type="submit" value="Add" th:attr="value=#{production.new.submit}"/>
+
+</form>
+</body>
+</html>

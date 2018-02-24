@@ -4,6 +4,9 @@ INSERT INTO Author (FullName, FName, MName, LName, BYear, DYear, Sex) VALUES ('�
 
 INSERT INTO genre(id, Genre) VALUES (1, 'Импрессионизм');
 INSERT INTO genre(id, Genre) VALUES (2, 'Куббизм');
+INSERT INTO genre(id, Genre) VALUES (3, 'Реализм');
+INSERT INTO genre(id, Genre) VALUES (4, 'Абстракционизм');
+INSERT INTO genre(id, Genre) VALUES (5, 'Неопределенный жанр');
 
 INSERT INTO Description(id, Description) VALUES (1, 'Это пример описания картины.');
 INSERT INTO Description(id, Description) VALUES (2, 'Это пример описания картины 222.');

@@ -7,4 +7,6 @@ import com.alexarkhipov.works.pictorialart.model.Author;
 public interface AuthorService {
 
 	List<Author> getAuthors();
+
+	Author getAuthor(Integer id);
 }

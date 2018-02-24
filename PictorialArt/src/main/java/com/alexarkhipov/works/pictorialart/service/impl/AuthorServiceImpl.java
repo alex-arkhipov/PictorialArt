@@ -20,4 +20,9 @@ public class AuthorServiceImpl implements AuthorService {
 		return authorsDao.getAuthors();
 	}
 
+	@Override
+	public Author getAuthor(Integer id) {
+		return authorsDao.getAuthor(id);
+	}
+
 }

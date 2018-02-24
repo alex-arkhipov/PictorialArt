@@ -15,9 +15,9 @@ CREATE TABLE Author (
 	Sex tinyint not null
 );
 
-CREATE TABLE Genre (id int primary key not null, Genre varchar(100) not null);
+CREATE TABLE Genre (id int primary key not null auto_increment, Genre varchar(100) not null);
 
-CREATE TABLE Description (id int primary key not null, Description text not null);
+CREATE TABLE Description (id int primary key auto_increment, Description text not null);
 
 CREATE TABLE Production (
 	id int primary key auto_increment,
@@ -26,8 +26,8 @@ CREATE TABLE Production (
 	Title varchar(255) not null,
 	CYear int,
 	GenreID int,
-	Filename varchar(100) not null,
-	Popularity tinyint not null
+	Filename varchar(100),
+	Popularity tinyint
 );
 ALTER TABLE Production ADD FOREIGN KEY (AuthorID) REFERENCES Author(id);
 ALTER TABLE Production ADD FOREIGN KEY (GenreID) REFERENCES Genre(id);

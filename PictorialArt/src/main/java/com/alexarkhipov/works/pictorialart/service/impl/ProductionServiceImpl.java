@@ -13,16 +13,24 @@ import com.alexarkhipov.works.pictorialart.service.ProductionService;
 public class ProductionServiceImpl implements ProductionService {
 
 	@Autowired
-	private ProductionDao producationsDao;
+	private ProductionDao productionDao;
 
 	@Override
 	public List<Production> getProductions() {
-		return producationsDao.getProductions();
+		return productionDao.getProductions();
+	}
+
+	@Override
+	public Production getProduction(Integer prodId) {
+		return productionDao.getProduction(prodId);
 	}
 
 	@Override
 	public List<Production> getProductions(String author) {
-		return producationsDao.getProductions(author);
+		return productionDao.getProductions(author);
 	}
 
+	public void saveProduction(Production p) {
+		productionDao.saveProduction(p);
+	}
 }

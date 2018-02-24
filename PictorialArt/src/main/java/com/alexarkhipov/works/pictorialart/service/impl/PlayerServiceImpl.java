@@ -6,25 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alexarkhipov.works.pictorialart.dao.PlayerDao;
-import com.alexarkhipov.works.pictorialart.model.Players;
+import com.alexarkhipov.works.pictorialart.model.Player;
 import com.alexarkhipov.works.pictorialart.service.PlayerService;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
 	@Autowired
-	private PlayerDao playersDao;
+	private PlayerDao playerDao;
 
-	public List<Players> getPlayers() {
-		return playersDao.getPlayers();
+	public List<Player> getPlayers() {
+		return playerDao.getPlayers();
 	}
 
-	public void savePlayer(Players p) {
-		playersDao.savePlayer(p);
+	public void savePlayer(Player p) {
+		playerDao.savePlayer(p);
 	}
 
-	public Players getPlayer(String nickname) {
-		return playersDao.getPlayer(nickname);
+	public Player getPlayer(String nickname) {
+		return playerDao.getPlayer(nickname);
 	}
 
 }

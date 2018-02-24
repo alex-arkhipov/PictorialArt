@@ -3,11 +3,14 @@
  */
 package com.alexarkhipov.works.pictorialart.dao.impl;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +33,15 @@ public class ProductionDaoImpl implements ProductionDao {
 		return criteria.list();
 	}
 
+	public Production getProduction(Integer prodId) {
+		Production p = null;
+		try (Session s = sessionFactory.openSession()) {
+			Criteria criteria = s.createCriteria(Production.class);
+			p = (Production) criteria.add(Restrictions.eq("id", prodId)).uniqueResult();
+		}
+		return p;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -43,4 +55,11 @@ public class ProductionDaoImpl implements ProductionDao {
 		return new LinkedList<>();
 	}
 
+	public void saveProduction(Production p) {
+		Session s = sessionFactory.openSession();
+		s.getTransaction().begin();
+		Serializable id = s.save(p);
+		s.getTransaction().commit();
+		s.close();
+	}
 }

@@ -27,7 +27,7 @@ class SexClass {
 
 @Entity
 @Table(name = "PLAYER")
-public class Players {
+public class Player {
 
 	static {
 		sexes = getSexes();

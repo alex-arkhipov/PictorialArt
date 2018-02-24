@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alexarkhipov.works.pictorialart.model.Players;
+import com.alexarkhipov.works.pictorialart.model.Player;
 import com.alexarkhipov.works.pictorialart.service.PlayerService;
 import com.alexarkhipov.works.pictorialart.utils.NeoCrypt;
 
@@ -38,26 +38,26 @@ public class PlayerController {
 	public static final String NEW_PLAYER = "newplayer";
 
 	@Autowired
-	private PlayerService playersService;
+	private PlayerService playerService;
 
 	@Autowired
 	private NeoCrypt neoCrypt;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ResponseEntity<List<Players>> players() {
+	public ResponseEntity<List<Player>> players() {
 
-		List<Players> a = playersService.getPlayers();
+		List<Player> a = playerService.getPlayers();
 		return new ResponseEntity<>(a, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/" + NEW_PLAYER, method = RequestMethod.GET)
-	public String newPlayer(@ModelAttribute("player") Players player) {
+	public String newPlayer(@ModelAttribute("player") Player player) {
 
 		return NEW_PLAYER;
 	}
 
 	@RequestMapping(value = "/" + NEW_PLAYER, method = RequestMethod.POST)
-	public String newplayerProcess(/* final Model model, */ @ModelAttribute("player") @Valid Players player,
+	public String newplayerProcess(/* final Model model, */ @ModelAttribute("player") @Valid Player player,
 			BindingResult errors) {
 		logger.debug(player.toString());
 		if (errors.hasErrors()) {
@@ -66,13 +66,13 @@ public class PlayerController {
 
 		// TODO: check that such player exist
 		player.setHash(neoCrypt.generatePasswordHash(player.getPassword()));
-		playersService.savePlayer(player);
+		playerService.savePlayer(player);
 		return "redirect:/player/" + player.getNickname();
 	}
 
 	@RequestMapping(value = "/{playernickname}", method = RequestMethod.GET)
 	public String showPlayerProfile(@PathVariable String playernickname, Model model) {
-		Players pl = playersService.getPlayer(playernickname);
+		Player pl = playerService.getPlayer(playernickname);
 		model.addAttribute("player", pl);
 		return "profile";
 	}

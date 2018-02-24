@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.alexarkhipov.works.pictorialart.dao.PlayerDao;
-import com.alexarkhipov.works.pictorialart.model.Players;
+import com.alexarkhipov.works.pictorialart.model.Player;
 
 @Component
 public class PlayerDaoImpl implements PlayerDao {
@@ -19,21 +19,21 @@ public class PlayerDaoImpl implements PlayerDao {
 	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	public List<Players> getPlayers() {
-		Criteria criteria = sessionFactory.openSession().createCriteria(Players.class);
+	public List<Player> getPlayers() {
+		Criteria criteria = sessionFactory.openSession().createCriteria(Player.class);
 		return criteria.list();
 	}
 
-	public void savePlayer(Players p) {
+	public void savePlayer(Player p) {
 		Session s = sessionFactory.openSession();
 		s.save(p);
 	}
 
 	// @SuppressWarnings("unchecked")
-	public Players getPlayer(String nickname) {
-		Criteria criteria = sessionFactory.openSession().createCriteria(Players.class);
+	public Player getPlayer(String nickname) {
+		Criteria criteria = sessionFactory.openSession().createCriteria(Player.class);
 		criteria.add(Restrictions.eq("nickname", nickname));
-		return (Players) criteria.list().get(0);
+		return (Player) criteria.list().get(0);
 	}
 
 }

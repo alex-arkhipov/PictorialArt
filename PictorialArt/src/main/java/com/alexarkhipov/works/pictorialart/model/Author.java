@@ -16,11 +16,19 @@ public class Author {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	public int getId() {
+		return id;
+	}
+
 	@Column(nullable = false, length = 255)
 	private String fullname;
 
 	public String getFullname() {
 		return fullname;
+	}
+
+	public void setFullname(String fn) {
+		fullname = fn;
 	}
 
 	@Column(nullable = false, length = 100)

@@ -2,12 +2,12 @@ package com.alexarkhipov.works.pictorialart.dao;
 
 import java.util.List;
 
-import com.alexarkhipov.works.pictorialart.model.Players;
+import com.alexarkhipov.works.pictorialart.model.Player;
 
 public interface PlayerDao {
-	List<Players> getPlayers();
+	List<Player> getPlayers();
 
-	void savePlayer(Players p);
+	void savePlayer(Player p);
 
-	Players getPlayer(String nickname);
+	Player getPlayer(String nickname);
 }

@@ -13,11 +13,19 @@ public class Genre {
 	@Column(name = "id")
 	private int id;
 
+	public Integer getId() {
+		return id;
+	}
+
 	@Column(name = "Genre", nullable = false)
-	private String gen;
+	private String genre;
 
 	public String getGenre() {
-		return gen;
+		return genre;
+	}
+
+	public void setGenre(String g) {
+		genre = g;
 	}
 
 }

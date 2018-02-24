@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<title th:text="'Production info: ' + ${production.title}">Production info: Test</title>
+</head>
+<body>
+<header th:replace="layout :: site-header"></header>
+<h1>Production <span th:text="${production.title}">Title</span></h1>
+<p> Author: <span th:text="${production.author.fullname}">Author Name</span></p>
+<p> Creation year: <span th:text="${production.cyear}">Creation year</span></p>
+<p> Description: <span th:text="${production.description.description}">Description</span></p>
+<p> Genre: <span th:text="${production.genre.genre}">Genre</span></p>
+
+<div th:each="genre : ${genres}"><span th:text="${genre.genre}"></span></div>
+
+</body>
+</html>

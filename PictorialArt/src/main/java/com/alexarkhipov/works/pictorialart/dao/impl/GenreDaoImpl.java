@@ -10,34 +10,34 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alexarkhipov.works.pictorialart.dao.AuthorDao;
-import com.alexarkhipov.works.pictorialart.model.Author;
+import com.alexarkhipov.works.pictorialart.dao.GenreDao;
+import com.alexarkhipov.works.pictorialart.model.Genre;
 
 @Component
-public class AuthorDaoImpl implements AuthorDao {
+public class GenreDaoImpl implements GenreDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	public List<Author> getAuthors() {
-		List<Author> l = new ArrayList<>();
+	public List<Genre> getGenres() {
+		List<Genre> l = new ArrayList<>();
 
 		try (Session session = sessionFactory.openSession()) {
-			Criteria criteria = session.createCriteria(Author.class);
+			Criteria criteria = session.createCriteria(Genre.class);
 			l = criteria.list();
 		}
 		return l;
 	}
 
-	public Author getAuthor(Integer id) {
-		Author a = null;
+	public Genre getGenre(Integer id) {
+		Genre g = null;
 		try (Session session = sessionFactory.openSession()) {
-			Criteria criteria = session.createCriteria(Author.class);
+			Criteria criteria = session.createCriteria(Genre.class);
 			criteria.add(Restrictions.eq("id", id));
-			a = (Author) criteria.uniqueResult();
+			g = (Genre) criteria.uniqueResult();
 		}
-		return a;
+		return g;
 	}
 
 }
