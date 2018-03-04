@@ -29,10 +29,6 @@ class SexClass {
 @Table(name = "PLAYER")
 public class Player {
 
-	static {
-		sexes = getSexes();
-	}
-
 	@Id
 	@Column(name = "id")
 	@GeneratedValue
@@ -140,9 +136,7 @@ public class Player {
 		this.sex = sex;
 	}
 
-	public static final List<SexClass> sexes;
-
-	private static ArrayList<SexClass> getSexes() {
+	public static List<SexClass> getSexes() {
 		ArrayList<SexClass> sexes = new ArrayList<>();
 		SexClass man = new SexClass(1, "Man");
 		SexClass woman = new SexClass(2, "Woman");

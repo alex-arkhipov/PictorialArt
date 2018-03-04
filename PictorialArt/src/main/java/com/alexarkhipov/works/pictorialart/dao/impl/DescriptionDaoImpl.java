@@ -43,7 +43,7 @@ public class DescriptionDaoImpl implements DescriptionDao {
 
 	public Description saveDescription(String desc) {
 		Description d = new Description();
-		d.setDescription(desc);
+		d.setDesc(desc);
 		saveDescription(d);
 		return d;
 	}

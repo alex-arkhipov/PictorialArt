@@ -20,20 +20,28 @@ public class PlayerDaoImpl implements PlayerDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Player> getPlayers() {
-		Criteria criteria = sessionFactory.openSession().createCriteria(Player.class);
-		return criteria.list();
+		List<Player> l = null;
+		try (Session s = sessionFactory.openSession()) {		
+			Criteria criteria = s.createCriteria(Player.class);
+			l = criteria.list();
+		}
+		return l;
 	}
 
 	public void savePlayer(Player p) {
-		Session s = sessionFactory.openSession();
-		s.save(p);
+		try (Session s = sessionFactory.openSession()) {
+			s.save(p);	
+		}
 	}
 
-	// @SuppressWarnings("unchecked")
 	public Player getPlayer(String nickname) {
-		Criteria criteria = sessionFactory.openSession().createCriteria(Player.class);
-		criteria.add(Restrictions.eq("nickname", nickname));
-		return (Player) criteria.list().get(0);
+		Player p = null;
+		try (Session s = sessionFactory.openSession()) {
+			Criteria criteria = s.createCriteria(Player.class);
+			criteria.add(Restrictions.eq("nickname", nickname));
+			p = (Player) criteria.list().get(0);
+		}
+		return p;
 	}
 
 }

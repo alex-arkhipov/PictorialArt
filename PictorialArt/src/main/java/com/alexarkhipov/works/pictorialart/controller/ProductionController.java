@@ -102,7 +102,6 @@ public class ProductionController {
 		if (errors.hasErrors()) {
 			return SLASH + PRODUCTION + SLASH + NEW_PRODUCTION;
 		}
-		logger.debug(production.toString());
 
 		// Get author
 		production.setAuthor(authorService.getAuthor(production.getAuthorNameId()));

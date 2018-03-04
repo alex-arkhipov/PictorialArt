@@ -59,7 +59,7 @@ public class PlayerController {
 	@RequestMapping(value = "/" + NEW_PLAYER, method = RequestMethod.POST)
 	public String newplayerProcess(/* final Model model, */ @ModelAttribute("player") @Valid Player player,
 			BindingResult errors) {
-		logger.debug(player.toString());
+		
 		if (errors.hasErrors()) {
 			return NEW_PLAYER;
 		}

@@ -20,14 +20,14 @@ public class Description {
 	private int id;
 
 	@Column(name = "Description", nullable = false)
-	private String description;
+	private String desc;
 
-	public String getDescription() {
-		return description;
+	public String getDesc() {
+		return desc;
 	}
 
-	public void setDescription(String d) {
-		description = d;
+	public void setDesc(String d) {
+		desc = d;
 	}
 
 }

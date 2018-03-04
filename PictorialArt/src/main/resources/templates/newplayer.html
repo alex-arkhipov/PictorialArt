@@ -30,7 +30,7 @@
 <div>
 <label class="formLabel">Sex: </label>
 <select th:field="*{sex}">
-	<option th:each="s : ${player.sexes}" th:value="${s.value}" th:text="${s.name}">Sex</option>
+	<option th:each="s : ${player.getSexes()}" th:value="${s.value}" th:text="${s.name}">Sex</option>
 </select>
 	<span class="formError" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Incorrect sex</span>
 </div>

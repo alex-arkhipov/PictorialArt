@@ -18,14 +18,14 @@ public class Genre {
 	}
 
 	@Column(name = "Genre", nullable = false)
-	private String genre;
+	private String genreName;
 
-	public String getGenre() {
-		return genre;
+	public String getGenreName() {
+		return genreName;
 	}
 
-	public void setGenre(String g) {
-		genre = g;
+	public void setGenreName(String g) {
+		genreName = g;
 	}
 
 }

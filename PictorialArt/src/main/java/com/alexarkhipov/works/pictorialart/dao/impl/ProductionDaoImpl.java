@@ -28,8 +28,12 @@ public class ProductionDaoImpl implements ProductionDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Production> getProductions() {
-		Criteria criteria = sessionFactory.openSession().createCriteria(Production.class);
-		return criteria.list();
+		List<Production> l = null;
+		try (Session s = sessionFactory.openSession()) {
+			Criteria criteria = s.createCriteria(Production.class);
+			l = criteria.list();
+		}
+		return l;
 	}
 
 	public Production getProduction(Integer prodId) {
