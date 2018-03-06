@@ -29,14 +29,14 @@
 <select th:field="*{genreNameId}">
   <option th:each="genre : ${genres}" 
           th:value="${genre.id}"
-          th:text="${genre.genre}"></option>
+          th:text="${genre.genreName}"></option>
 </select>
 </div>
 
 <div>
 <label class="formLabel"><span th:text="#{production.new.description}">Description:</span></label>
-<textarea rows="5" name="description" th:field="*{description.description}"></textarea>
-	<span class="formError" th:if="${#fields.hasErrors('description.description')}" th:errors="description.description">Incorrect description</span>
+<textarea rows="5" name="description" th:field="*{description.desc}"></textarea>
+	<span class="formError" th:if="${#fields.hasErrors('description.desc')}" th:errors="description.desc">Incorrect description</span>
 </div>
 
 <div>
