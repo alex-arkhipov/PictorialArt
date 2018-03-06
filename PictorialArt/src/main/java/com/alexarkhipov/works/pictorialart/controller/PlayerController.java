@@ -34,7 +34,7 @@ class Sex {
 @Controller
 @RequestMapping(value = "/player")
 public class PlayerController {
-	private static final Logger logger = LoggerFactory.getLogger(PlayerController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(PlayerController.class);
 	public static final String NEW_PLAYER = "newplayer";
 
 	@Autowired
