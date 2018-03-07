@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.alexarkhipov.works.pictorialart.AmazonS3Helper;
 import com.alexarkhipov.works.pictorialart.dao.ProductionDao;
 import com.alexarkhipov.works.pictorialart.model.Production;
 
@@ -25,6 +26,9 @@ public class ProductionDaoImpl implements ProductionDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+
+	@Autowired
+	private AmazonS3Helper s3Helper;
 
 	@SuppressWarnings("unchecked")
 	public List<Production> getProductions() {
@@ -39,10 +43,27 @@ public class ProductionDaoImpl implements ProductionDao {
 	public Production getProduction(Integer prodId) {
 		Production p = null;
 		try (Session s = sessionFactory.openSession()) {
-			Criteria criteria = s.createCriteria(Production.class);
-			p = (Production) criteria.add(Restrictions.eq("id", prodId)).uniqueResult();
+			p = getProductionUnsafe(s, prodId);
 		}
 		return p;
+	}
+
+	public Production getProductionEx(Integer prodId) {
+		Production p = null;
+
+		try (Session s = sessionFactory.openSession()) {
+			// Get usual production
+			p = getProductionUnsafe(s, prodId);
+
+			// Fill in URL part
+			p.setImageUrl(s3Helper.getImageUrl(prodId.toString()));
+		}
+		return p;
+	}
+
+	private Production getProductionUnsafe(Session s, Integer prodId) {
+		Criteria criteria = s.createCriteria(Production.class);
+		return (Production) criteria.add(Restrictions.eq("id", prodId)).uniqueResult();
 	}
 
 	/*

@@ -27,7 +27,6 @@ import com.alexarkhipov.works.pictorialart.model.Author;
 import com.alexarkhipov.works.pictorialart.model.Genre;
 import com.alexarkhipov.works.pictorialart.model.Production;
 import com.alexarkhipov.works.pictorialart.service.AuthorService;
-import com.alexarkhipov.works.pictorialart.service.FileService;
 import com.alexarkhipov.works.pictorialart.service.GenreService;
 import com.alexarkhipov.works.pictorialart.service.ProductionService;
 
@@ -43,9 +42,6 @@ public class ProductionController {
 
 	@Autowired
 	private AmazonS3Helper s3Helper;
-
-	@Autowired
-	private FileService fileService;
 
 	@Autowired
 	private ProductionService productionService;
@@ -109,24 +105,22 @@ public class ProductionController {
 		// Get Genre
 		production.setGenre(genreService.getGenre(production.getGenreNameId()));
 
-		// Save file locally
-		// fileService.saveFile(fileData);
-
 		if (!s3Helper.saveFile(fileData)) {
 			return "error/filesaving";
 		}
 
-		production.setFilename(fileService.getFileName(fileData));
-
 		productionService.saveProduction(production);
 		model.addFlashAttribute(PRODUCTION_ATTR, production);
+
+		logger.info("New production added: " + production.getTitle());
+
 		return "redirect:" + SLASH + PRODUCTION + SLASH + production.getId();
 	}
 
 	@RequestMapping(value = "/{productionid}", method = RequestMethod.GET)
 	public String showProductionInfo(@PathVariable Integer productionid, Model model) {
 		if (!model.containsAttribute(PRODUCTION_ATTR)) {
-			Production prod = productionService.getProduction(productionid);
+			Production prod = productionService.getProductionEx(productionid);
 			model.addAttribute(PRODUCTION_ATTR, prod);
 		}
 

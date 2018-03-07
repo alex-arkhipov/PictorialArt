@@ -12,7 +12,7 @@ import com.alexarkhipov.works.pictorialart.model.Production;
 import com.alexarkhipov.works.pictorialart.service.ProductionService;
 
 @RestController
-@RequestMapping("/production/rest")
+@RequestMapping("/rest/production")
 public class ProductionRestController {
 
 	@Autowired
@@ -25,7 +25,7 @@ public class ProductionRestController {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{prodId}")
 	Production readProduction(@PathVariable Integer prodId) {
-		return productionService.getProduction(prodId);
+		return productionService.getProductionEx(prodId);
 	}
 
 }

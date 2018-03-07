@@ -11,7 +11,7 @@ INSERT INTO genre(id, Genre) VALUES (5, 'Неопределенный жанр')
 INSERT INTO Description(id, Description) VALUES (1, 'Это пример описания картины.');
 INSERT INTO Description(id, Description) VALUES (2, 'Это пример описания картины 222.');
 
-INSERT INTO Production(AuthorID, Title, DescriptionID, CYear, GenreID, Filename, Popularity) SELECT id, 'Памятник', 1, 1836, 2, 'xxx.jpg', 1 from Author WHERE LNAME='Пушкин';
-INSERT INTO Production(AuthorID, Title, DescriptionID, CYear, GenreID, Filename, Popularity) SELECT id, 'Последний день Помпеи', 2, 1836, 2, 'xxx2.jpg', 5 from Author WHERE LNAME='Достоевский';
+INSERT INTO Production(AuthorID, Title, DescriptionID, CYear, GenreID, Popularity) SELECT id, 'Памятник', 1, 1836, 2, 1 from Author WHERE LNAME='Пушкин';
+INSERT INTO Production(AuthorID, Title, DescriptionID, CYear, GenreID, Popularity) SELECT id, 'Последний день Помпеи', 2, 1836, 2, 5 from Author WHERE LNAME='Достоевский';
 
 INSERT INTO Player(Nickname,Name,Sex,Hash,Age, LastAccess, Scores, Email) VALUES ('Neo', 'Alex Arkhipov', 1,'fdfdsfdfs', 36, CURDATE(), 0, 'arkhipov@mera.ru');

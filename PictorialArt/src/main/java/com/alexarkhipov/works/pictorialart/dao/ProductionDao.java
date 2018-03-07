@@ -14,10 +14,12 @@ import com.alexarkhipov.works.pictorialart.model.Production;
 public interface ProductionDao {
 	List<Production> getProductions();
 
-	Production getProduction(Integer prodId);
-
 	// Return 'productions' of particular 'author'
 	List<Production> getProductions(String author);
+
+	Production getProduction(Integer prodId);
+
+	Production getProductionEx(Integer prodId);
 
 	void saveProduction(Production p);
 }

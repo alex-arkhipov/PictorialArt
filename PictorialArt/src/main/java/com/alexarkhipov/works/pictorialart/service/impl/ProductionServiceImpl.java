@@ -26,6 +26,11 @@ public class ProductionServiceImpl implements ProductionService {
 	}
 
 	@Override
+	public Production getProductionEx(Integer prodId) {
+		return productionDao.getProductionEx(prodId);
+	}
+
+	@Override
 	public List<Production> getProductions(String author) {
 		return productionDao.getProductions(author);
 	}

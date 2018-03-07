@@ -17,6 +17,11 @@ public class AmazonS3Helper {
 	private static final String FOLDER_NAME = "Pictures";
 	private static final String SEPARATOR = "/";
 
+	private static final String IMAGE_URL_START = "https://s3.eu-central-1.amazonaws.com/";
+	private static final String IMAGE_URL_END = ".jpg";
+	private static final String IMAGE_URL_TEMPLATE = IMAGE_URL_START + BUCKET_NAME + SEPARATOR + FOLDER_NAME
+			+ SEPARATOR;
+
 	private static final Logger logger = LoggerFactory.getLogger(AmazonS3Helper.class);
 
 	/*
@@ -44,6 +49,11 @@ public class AmazonS3Helper {
 			return false;
 		}
 		return true;
+	}
+
+	public String getImageUrl(String imageName) {
+		StringBuilder sb = new StringBuilder().append(IMAGE_URL_TEMPLATE).append(imageName).append(IMAGE_URL_END);
+		return sb.toString();
 	}
 
 }

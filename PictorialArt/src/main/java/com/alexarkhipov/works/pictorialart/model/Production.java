@@ -95,17 +95,6 @@ public class Production {
 		genre = g;
 	}
 
-	@Column(nullable = false, length = 255)
-	private String filename;
-
-	public String getFilename() {
-		return filename;
-	}
-
-	public void setFilename(String f) {
-		filename = f;
-	}
-
 	@Column
 	private Integer popularity;
 
@@ -122,8 +111,19 @@ public class Production {
 		return title;
 	}
 
-	// *****************//
-	// Transient block //
+	/* =============== */
+	/* Transient block */
+	@Transient
+	private String imageUrl;
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String url) {
+		imageUrl = url;
+	}
+
 	@Transient
 	private Integer authorNameId;
 
@@ -146,6 +146,8 @@ public class Production {
 		genreNameId = id;
 	}
 
+	/* ============ */
+	/* Static block */
 	public static Map<Integer, String> getPopularities() {
 		Map<Integer, String> m = new TreeMap<>();
 		m.put(1, "Everybody knows");

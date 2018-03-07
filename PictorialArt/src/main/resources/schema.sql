@@ -26,7 +26,6 @@ CREATE TABLE Production (
 	Title varchar(255) not null,
 	CYear int,
 	GenreID int,
-	Filename varchar(100),
 	Popularity tinyint
 ) DEFAULT CHARSET=utf8;
 ALTER TABLE Production ADD FOREIGN KEY (AuthorID) REFERENCES Author(id);
