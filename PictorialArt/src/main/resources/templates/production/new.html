@@ -19,7 +19,7 @@
 </div>
 
 <div>
-<label class="formLabel"><span th:text="#{production.new.production}">Title:</span></label>
+<label class="formLabel"><span th:text="#{production.new.title}">Title:</span></label>
 <input type="text" th:field="*{title}"/>
 	<span class="formError" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect title</span>
 </div>
