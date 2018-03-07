@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-            		cd PictorialArt
-                sh 'mvn clean install'
+                sh 'cd PictorialArt; mvn clean install'
             }
         }
     }
