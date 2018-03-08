@@ -18,14 +18,20 @@ public class ProductionRestController {
 	@Autowired
 	private ProductionService productionService;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET, value="/all")
 	Collection<Production> readProductions() {
 		return productionService.getProductions();
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{prodId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/one/{prodId}")
 	Production readProduction(@PathVariable Integer prodId) {
 		return productionService.getProductionEx(prodId);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/few/{number}")
+	Collection<Production> readProductions(@PathVariable Integer number) {
+		return productionService.getProductions(number);
+	}
+
+	
 }
