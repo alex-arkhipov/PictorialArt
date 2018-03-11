@@ -8,4 +8,6 @@ public interface AuthorDao {
 	List<Author> getAuthors();
 
 	Author getAuthor(Integer id);
+
+	void save(Author a);
 }

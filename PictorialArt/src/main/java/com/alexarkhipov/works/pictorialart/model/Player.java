@@ -1,6 +1,5 @@
 package com.alexarkhipov.works.pictorialart.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,15 +14,6 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-class SexClass {
-	public SexClass(int v, String n) {
-		value = (short) v;
-		name = n;
-	}
-
-	public final short value;
-	public final String name;
-}
 
 @Entity
 @Table(name = "PLAYER")
@@ -136,13 +126,8 @@ public class Player {
 		this.sex = sex;
 	}
 
-	public static List<SexClass> getSexes() {
-		ArrayList<SexClass> sexes = new ArrayList<>();
-		SexClass man = new SexClass(1, "Man");
-		SexClass woman = new SexClass(2, "Woman");
-		sexes.add(man);
-		sexes.add(woman);
-		return sexes;
+	public static List<Gender> getSexes() {
+		return Gender.getSexes();
 	}
 
 	public String toString() {
