@@ -1,0 +1,39 @@
+update user set authentication_string=PASSWORD("1dkdi3kdDee3#") where User='root';
+
+SELECT User FROM mysql.user;
+    
+CREATE DATABASE `pictorial_art` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE USER 'pictorial'@'localhost' IDENTIFIED BY '123qwe';
+GRANT ALL PRIVILEGES ON pictorial_art.* To 'pictorial'@'localhost';
+FLUSH PRIVILEGES;
+
+drop user 'pictorial';
+
+./pictorial_deploy.sh target/PictorialArt-0.1.0.jar ~/Documents/Amazon/Webserver.pem ubuntu@ec2-52-58-153-254.eu-central-1.compute.amazonaws.com PictorialArt/JARs/PictorialArt-0.1.0.jar
+
+ssh -i "Documents/Amazon/Webserver.pem" ubuntu@ec2-52-58-153-254.eu-central-1.compute.amazonaws.com
+
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+lower_case_table_names = 1
+#default-character-set=utf8
+collation-server = utf8_unicode_ci
+init-connect='SET NAMES utf8'
+character-set-server = utf8
+
+spring.jpa.generate-ddl (boolean) switches the feature on and off and is vendor independent.
+spring.jpa.hibernate.ddl-auto (enum) is a Hibernate feature that controls the behavior in a more fine-grained way. See below for more detail. (none or update)
+
+sudo ln -s /etc/init/pictorial.conf /etc/init.d/pictorial
+
+
+ubuntu@ip-172-31-44-72:~/PictorialArt$ cat /etc/init/pictorial.conf
+start on filesystem
+exec /usr/bin/java -jar /home/ubuntu/PictorialArt/PictorialArt.jar
+
+
+cat pictorial_src.sh
+!#/bin/bash
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_KEY=
+java -jar /home/ubuntu/PictorialArt/PictorialArt.jar
+

@@ -116,6 +116,7 @@ public class ProductionDaoImpl implements ProductionDao {
 	public void saveProduction(Production p) {
 		Session s = sessionFactory.openSession();
 		s.getTransaction().begin();
+		s.save(p);
 		s.getTransaction().commit();
 		s.close();
 	}
