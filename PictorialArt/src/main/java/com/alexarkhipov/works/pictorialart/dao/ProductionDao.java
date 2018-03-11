@@ -13,7 +13,7 @@ import com.alexarkhipov.works.pictorialart.model.Production;
  */
 public interface ProductionDao {
 	List<Production> getProductions();
-
+	public List<Production> getProductions(Integer qty);
 	// Return 'productions' of particular 'author'
 	List<Production> getProductions(String author);
 

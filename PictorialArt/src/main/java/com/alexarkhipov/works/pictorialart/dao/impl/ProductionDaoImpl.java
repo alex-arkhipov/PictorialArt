@@ -3,8 +3,10 @@
  */
 package com.alexarkhipov.works.pictorialart.dao.impl;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -40,6 +42,38 @@ public class ProductionDaoImpl implements ProductionDao {
 		return l;
 	}
 
+	public List<Production> getProductions(Integer qty) {
+		List<Production> l = getProductions();
+		int size = l.size();
+		
+		if (qty > size) {
+			// Error - number of productions is smaller than requested value
+			return l;
+		}
+		
+		Production[] a = new Production[size];
+		l.toArray(a);
+		
+		List <Production> l2 = new ArrayList<>();
+		
+		Random rand = new Random();
+		int r = 0;
+		for(int i=0;i<qty;i++) {
+			// Get new random value
+			// Check that is was not choosed before - if so regereneate random
+			do {
+				r = rand.nextInt(size);	
+			} while (a[r] == null);
+			
+			// Copy element to new List
+			l2.add(a[r]);
+			a[r] = null;
+			
+		}
+		
+		return l2;
+	}
+	
 	public Production getProduction(Integer prodId) {
 		Production p = null;
 		try (Session s = sessionFactory.openSession()) {

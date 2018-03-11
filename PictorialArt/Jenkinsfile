@@ -1,10 +1,10 @@
 pipeline {
     agent { docker 'maven:3.3.3' }
+    options { timestamps() }
     stages {
         stage('build') {
             steps {
-                cd PictorialArt
-                sh 'mvn clean install'
+                sh 'cd PictorialArt; mvn clean install'
             }
         }
     }

@@ -19,6 +19,11 @@ public class ProductionServiceImpl implements ProductionService {
 	public List<Production> getProductions() {
 		return productionDao.getProductions();
 	}
+	
+	@Override
+	public List<Production> getProductions(Integer qty){
+		return productionDao.getProductions(qty);
+	}
 
 	@Override
 	public Production getProduction(Integer prodId) {
