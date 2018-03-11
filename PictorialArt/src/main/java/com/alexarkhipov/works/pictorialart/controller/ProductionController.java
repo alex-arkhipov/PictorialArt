@@ -87,7 +87,7 @@ public class ProductionController {
 		Map<Integer, String> popularities = Production.getPopularities();
 		model.addAttribute("popularities", popularities);
 
-		return SLASH + PRODUCTION + SLASH + NEW_PRODUCTION;
+		return PRODUCTION + SLASH + NEW_PRODUCTION;
 	}
 
 	@RequestMapping(value = SLASH + NEW_PRODUCTION, method = RequestMethod.POST)
@@ -96,7 +96,7 @@ public class ProductionController {
 			@ModelAttribute(PRODUCTION_ATTR) @Valid Production production, BindingResult errors) {
 
 		if (errors.hasErrors()) {
-			return SLASH + PRODUCTION + SLASH + NEW_PRODUCTION;
+			return PRODUCTION + SLASH + NEW_PRODUCTION;
 		}
 
 		// Get author
@@ -124,6 +124,6 @@ public class ProductionController {
 			model.addAttribute(PRODUCTION_ATTR, prod);
 		}
 
-		return SLASH + PRODUCTION + SLASH + INFO_PRODUCTION;
+		return PRODUCTION + SLASH + INFO_PRODUCTION;
 	}
 }
