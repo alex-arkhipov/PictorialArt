@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.alexarkhipov.works.pictorialart.dao.AuthorDao;
 import com.alexarkhipov.works.pictorialart.model.Author;
+import com.alexarkhipov.works.pictorialart.model.Production;
 
 @Component
 public class AuthorDaoImpl implements AuthorDao {
@@ -38,6 +39,14 @@ public class AuthorDaoImpl implements AuthorDao {
 			a = (Author) criteria.uniqueResult();
 		}
 		return a;
+	}
+	
+	public void save(Author a) {
+		Session s = sessionFactory.openSession();
+		s.getTransaction().begin();
+		s.save(a);
+		s.getTransaction().commit();
+		s.close();
 	}
 
 }

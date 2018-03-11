@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<title th:text="#{author.new.page_title}">Pictorial Art - Create new author</title>
+</head>
+<body>
+<header th:replace="layout :: site-header"></header>
+<h1><span th:text="#{author.new.h1}">New Author Creation</span></h1>
+<form class="authorReg" th:object="${author}" method="POST" enctype="multipart/form-data">
+<div>
+
+<div>
+<label class="formLabel"><span th:text="#{author.new.fname}">First name:</span></label>
+<input type="text" th:field="*{fname}"/>
+    <span class="formError" th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}">Incorrect title</span>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{author.new.mname}">Middle name:</span></label>
+<input type="text" th:field="*{mname}"/>
+    <span class="formError" th:if="${#fields.hasErrors('mname')}" th:errors="*{mname}">Incorrect title</span>
+</div>
+
+<div>
+<label class="formLabel"><span th:text="#{author.new.lname}">Last name:</span></label>
+<input type="text" th:field="*{lname}"/>
+    <span class="formError" th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}">Incorrect title</span>
+</div>
+
+
+<div>
+<label class="formLabel"><span th:text="#{author.new.byear}">Title:</span></label>
+<input type="text" th:field="*{byear}"/>
+    <span class="formError" th:if="${#fields.hasErrors('byear')}" th:errors="*{byear}">Incorrect title</span>
+</div>
+
+
+<div>
+<label class="formLabel"><span th:text="#{author.new.dyear}">Title:</span></label>
+<input type="text" th:field="*{dyear}"/>
+    <span class="formError" th:if="${#fields.hasErrors('dyear')}" th:errors="*{dyear}">Incorrect title</span>
+</div>
+
+
+<div>
+<label class="formLabel"><span th:text="#{author.new.sex}">Sex: </span></label>
+<select th:field="*{sex}">
+    <option th:each="s : ${author.getSexes()}" th:value="${s.value}" th:text="${s.name}">Sex</option>
+</select>
+    <span class="formError" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Incorrect sex</span>
+</div>
+
+</div>
+<input type="submit" value="Add" th:attr="value=#{author.new.submit}"/>
+
+</form>
+<div th:replace="layout :: site-footer"></div>
+</body>
+</html>

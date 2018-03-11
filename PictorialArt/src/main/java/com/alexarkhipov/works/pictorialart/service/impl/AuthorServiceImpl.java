@@ -25,4 +25,9 @@ public class AuthorServiceImpl implements AuthorService {
 		return authorsDao.getAuthor(id);
 	}
 
+	@Override
+	public void save(Author a) {
+		authorsDao.save(a);
+	}
+	
 }

@@ -9,4 +9,6 @@ public interface AuthorService {
 	List<Author> getAuthors();
 
 	Author getAuthor(Integer id);
+	
+	void save(Author a);
 }
