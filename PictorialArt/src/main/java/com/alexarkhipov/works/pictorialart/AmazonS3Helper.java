@@ -42,6 +42,7 @@ public class AmazonS3Helper {
 
 			ObjectMetadata meta = new ObjectMetadata();
 			meta.setContentLength(image.getSize());
+			meta.setContentType("image/jpg");
 
 			s3.putObject(BUCKET_NAME, key, is, meta);
 		} catch (Exception e) {
