@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<title th:text="#{genre.new.page_title}">Pictorial Art - Create new genre</title>
+</head>
+<body>
+<header th:replace="layout :: site-header"></header>
+<h1><span th:text="#{genre.new.h1}">New Genre Creation</span></h1>
+<form class="genreReg" th:object="${genre}" method="POST" enctype="multipart/form-data">
+<div>
+
+<div>
+<label class="formLabel"><span th:text="#{genre.new.genrename}">Genre name:</span></label>
+<input type="text" th:field="*{gname}"/>
+    <span class="formError" th:if="${#fields.hasErrors('gname')}" th:errors="*{gname}">Incorrect genre name</span>
+</div>
+
+</div>
+<input type="submit" value="Add" th:attr="value=#{genre.new.submit}"/>
+
+</form>
+<div th:replace="layout :: site-footer"></div>
+</body>
+</html>
